@@ -2,7 +2,6 @@ const { Client, Events, GatewayIntentBits, Collection, REST, Routes } = require(
 const { TOKEN, APP_ID } = require('./config.json');
 const { Sequelize } = require('sequelize');
 const fs = require("node:fs");
-const path = require("node:path");
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -29,7 +28,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 client.sequelize = sequelize;
 
 const commands = []
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js') && file !== "functions.js");
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 client.commands = new Collection();
 

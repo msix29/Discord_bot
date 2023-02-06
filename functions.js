@@ -1,9 +1,4 @@
-const ranks = [
-    "member",
-    "valued member",
-    "vip",
-    "admin"
-]
+const { RANKS } = require("./config.json")
 
 module.exports = {
     authenticate: (client) => {
@@ -30,22 +25,22 @@ module.exports = {
         return data
     },
     getNewRank: (currentRank, increase) => {
-        const index = ranks.indexOf(currentRank)
+        const index = RANKS.indexOf(currentRank)
         const newIndex = increase === true ? index + 1 : index - 1
         const realIndex = (
-            newIndex > ranks.length - 1 && ranks.length - 1 ||
+            newIndex > RANKS.length - 1 && RANKS.length - 1 ||
             newIndex < 0 && 0 ||
             newIndex
         )
 
-        return ranks[realIndex]
+        return RANKS[realIndex]
     },
     canUpdateRank: (currentRank, increase) => {
-        const index = ranks.indexOf(currentRank);
+        const index = RANKS.indexOf(currentRank);
 
         if (index === 0 && increase === false) {
             return false
-        } else if (index === ranks.length - 1 && increase === true) {
+        } else if (index === RANKS.length - 1 && increase === true) {
             return false
         }
 

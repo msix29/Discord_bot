@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { authenticate, isUserExists } = require("./functions")
+const { authenticate, isUserExists } = require("../functions")
 
 module.exports = {
 	data: new SlashCommandBuilder()

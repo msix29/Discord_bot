@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { authenticate, getData, getNewRank, updateDataBase, canUpdateRank } = require("./functions")
+const { authenticate, getData, getNewRank, updateDataBase, canUpdateRank } = require("../functions")
 
 module.exports = {
 	data: new SlashCommandBuilder()
